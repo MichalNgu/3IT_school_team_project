@@ -1,6 +1,85 @@
-#asfreah{
-    background: url('../img/afreah.png') no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+:root {
+	--bg-panel: #09090b;
+	--border: #15803d;
+	--text-main: #86efac;
+	--text-strong: #22c55e;
+}
+
+body {
+	font-family: "Consolas", "Cascadia Mono", "Courier New", monospace;
+}
+
+.retro-panel {
+	background: var(--bg-panel);
+	border: 2px solid var(--border);
+	box-shadow: 0 0 0 2px #052e16 inset;
+}
+
+.retro-panel-inner {
+	border: 1px solid #166534;
+	color: var(--text-main);
+	min-height: 48px;
+	display: flex;
+	align-items: center;
+}
+
+.battlefield {
+	max-height: calc(100vh - 235px);
+}
+
+.hp-track {
+	width: 100%;
+	height: 16px;
+	border: 1px solid #14532d;
+	background: #052e16;
+}
+
+.hp-fill {
+	height: 100%;
+	width: 100%;
+	transition: width 220ms linear;
+}
+
+.hp-player {
+	background: #22c55e;
+}
+
+.hp-enemy {
+	background: #f43f5e;
+}
+
+.sprite-wrap {
+	height: 200px;
+	border: 1px dashed #166534;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.sprite {
+	width: 170px;
+	height: 170px;
+	image-rendering: pixelated;
+}
+
+.anim-hit {
+	animation: hitFlash 180ms steps(2, end) 1;
+}
+
+.anim-block {
+	animation: blockShake 220ms steps(3, end) 1;
+}
+
+@keyframes hitFlash {
+	0% { filter: brightness(1); transform: translateX(0); }
+	40% { filter: brightness(1.75); transform: translateX(-8px); }
+	100% { filter: brightness(1); transform: translateX(0); }
+}
+
+@keyframes blockShake {
+	0% { transform: translateX(0); }
+	25% { transform: translateX(-6px); }
+	75% { transform: translateX(6px); }
+	100% { transform: translateX(0); }
 }
